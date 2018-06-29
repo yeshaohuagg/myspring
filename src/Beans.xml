@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+    <context:annotation-config/>
 
     <bean class="com.yeshao.InitHelloBean"/>
-
 
     <bean id="helloSpring" class="com.yeshao.HelloSpring" scope="prototype"
     init-method="init" destroy-method="destroy">
@@ -22,4 +29,21 @@
         <property name="msgChild2" value="msgChild2"/>
         <property name="msgChild3" value="msgChild3"/>
     </bean>
+
+    <bean id="Inner" class="com.yeshao.Inner"
+    init-method="preInit" destroy-method="preDestroy">
+        <property name="msgInner" value="inner say OK"/>
+    </bean>
+    <!--<bean id="outer" class="com.yeshao.Outer"-->
+    <!--p:inner-ref="inner">-->
+    <!--</bean>-->
+    <!--<bean id="outer" class="com.yeshao.Outer"-->
+          <!--autowire="constructor">-->
+    <!--</bean>-->
+    <bean id="outer" class="com.yeshao.Outer">
+    </bean>
+    <!--<bean id="startHandle" class="com.yeshao.StartHandle">-->
+    <!--</bean>-->
+    <!--<bean id="stopHandle" class="com.yeshao.StopHandle">-->
+    <!--</bean>-->
 </beans>
