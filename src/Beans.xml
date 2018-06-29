@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.yeshao.InitHelloBean"/>
+
+
+    <bean id="helloSpring" class="com.yeshao.HelloSpring" scope="prototype"
+    init-method="init" destroy-method="destroy">
+        <!--<property name="message" value="你好spring"/>-->
+    </bean>
+
+
+    <bean id="parent" class="com.yeshao.Parent">
+        <property name="msgParent1" value="msgParent1"/>
+        <property name="msgParent2" value="msgParent2"/>
+    </bean>
+
+    <bean id="child" class="com.yeshao.Child" parent="parent">
+        <property name="msgChild1" value="msgChild1"/>
+        <property name="msgChild2" value="msgChild2"/>
+        <property name="msgChild3" value="msgChild3"/>
+    </bean>
+</beans>
