@@ -25,11 +25,17 @@ public class MainApp {
 //        Outer outer = (Outer) context.getBean("outer");
 //        outer.outerSay();
 
-        ApplicationContext context = new AnnotationConfigApplicationContext(BeanConfig.class);
-        ((AnnotationConfigApplicationContext) context).start();
-        HelloSpring helloSpring = (HelloSpring) context.getBean(HelloSpring.class);
-        helloSpring.setMessage("好美哦");
-        helloSpring.getMessage();
-        ((AnnotationConfigApplicationContext) context).stop();
+//        ApplicationContext context = new AnnotationConfigApplicationContext(BeanConfig.class);
+//        ((AnnotationConfigApplicationContext) context).start();
+//        HelloSpring helloSpring = (HelloSpring) context.getBean(HelloSpring.class);
+//        helloSpring.setMessage("好美哦");
+//        helloSpring.getMessage();
+//        ((AnnotationConfigApplicationContext) context).stop();
+
+        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+        Student student = (Student) context.getBean("student");
+        student.getName();
+        student.getAge();
+//        student.printThrowException();
     }
 }
