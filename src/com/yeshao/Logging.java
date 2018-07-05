@@ -16,7 +16,7 @@ public class Logging {
     }
     @AfterReturning(pointcut = "pointcut()",returning = "retVal")
     public void afterReturningAdvice(Object retVal){
-        System.out.println("Returning:"+retVal.toString());
+//        System.out.println("Returning:"+retVal.toString());
     }
     @AfterThrowing(pointcut = "pointcut()",throwing = "e")
     public void afterThrowingAdvice(IllegalArgumentException e){
