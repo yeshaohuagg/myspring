@@ -12,6 +12,7 @@
                 http://www.springframework.org/schema/aop
                 http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
 
+    <aop:aspectj-autoproxy/>
 
     <context:annotation-config/>
     <bean class="com.yeshao.InitHelloBean"/>
@@ -23,20 +24,20 @@
         <property name="name" value="小明"/>
         <property name="age" value="2"/>
     </bean>
-    <aop:config>
-        <aop:aspect id="log" ref="logging">
-            <aop:pointcut id="pointcut"
-                          expression="execution(* com.yeshao.Student.*(..))"/>
-            <aop:before pointcut-ref="pointcut" method="beforeAdvice"/>
-            <aop:after pointcut-ref="pointcut" method="afterAdvice"/>
-            <aop:after-returning pointcut-ref="pointcut"
-                                 returning="retVal"
-                                 method="afterReturningAdvice"/>
-            <aop:after-throwing pointcut-ref="pointcut"
-                                throwing="e"
-                                method="afterThrowingAdvice"/>
-        </aop:aspect>
-    </aop:config>
+    <!--<aop:config>-->
+        <!--<aop:aspect id="log" ref="logging">-->
+            <!--<aop:pointcut id="pointcut"-->
+                          <!--expression="execution(* com.yeshao.Student.*(..))"/>-->
+            <!--<aop:before pointcut-ref="pointcut" method="beforeAdvice"/>-->
+            <!--<aop:after pointcut-ref="pointcut" method="afterAdvice"/>-->
+            <!--<aop:after-returning pointcut-ref="pointcut"-->
+                                 <!--returning="retVal"-->
+                                 <!--method="afterReturningAdvice"/>-->
+            <!--<aop:after-throwing pointcut-ref="pointcut"-->
+                                <!--throwing="e"-->
+                                <!--method="afterThrowingAdvice"/>-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
 
     <bean id="helloSpring" class="com.yeshao.HelloSpring" scope="prototype"
     init-method="init" destroy-method="destroy">
