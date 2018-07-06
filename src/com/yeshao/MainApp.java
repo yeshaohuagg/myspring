@@ -42,22 +42,24 @@ public class MainApp {
 //        student.printThrowException();
 
         StudentJDBCTemplate studentJDBCTemplate = (StudentJDBCTemplate) context.getBean("studentJDBCTemplate");
-//        studentJDBCTemplate.create("小红",11);
-//        studentJDBCTemplate.create("小蓝",2);
-//        studentJDBCTemplate.create("小黄",15);
+        studentJDBCTemplate.create("小红",11,99,2010);
+        studentJDBCTemplate.create("小蓝",2,97,2010);
+        studentJDBCTemplate.create("小黄",15,100,2011);
 
         List<Student> students = studentJDBCTemplate.listStudents();
         for (Student record : students) {
             System.out.print("ID : " + record.getId() );
             System.out.print(", Name : " + record.getName() );
-            System.out.println(", Age : " + record.getAge());
+            System.out.print(", Age : " + record.getAge());
+            System.out.print(", Marks : " + record.getMarks());
+            System.out.println(", Year : " + record.getYear());
         }
 
-        studentJDBCTemplate.update(2, 20000000);
-
-        Student student = studentJDBCTemplate.getStudent(2);
-        System.out.print("ID : " + student.getId() );
-        System.out.print(", Name : " + student.getName() );
-        System.out.println(", Age : " + student.getAge());
+//        studentJDBCTemplate.update(1, 20000000);
+//
+//        Student student = studentJDBCTemplate.getStudent(1);
+//        System.out.print("ID : " + student.getId() );
+//        System.out.print(", Name : " + student.getName() );
+//        System.out.println(", Age : " + student.getAge());
     }
 }

@@ -80,8 +80,12 @@
         <property name="username" value="root"/>
         <property name="password" value="xufenfen5201314"/>
     </bean>
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
     <bean id="studentJDBCTemplate"
           class="com.yeshao.StudentJDBCTemplate">
         <property name="dataSource"  ref="dataSource" />
+        <property name="transactionManager"  ref="transactionManager" />
     </bean>
 </beans>
