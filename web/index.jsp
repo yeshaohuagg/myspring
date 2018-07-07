@@ -8,9 +8,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>欢迎光临</title>
   </head>
   <body>
-  $END$
+  <form method="GET" action="/redirect">
+    <table>
+      <tr>
+        <td>
+          <input type="submit" value="确定"/>
+        </td>
+      </tr>
+    </table>
+  </form>
   </body>
 </html>
